@@ -1,0 +1,8 @@
+.col-sm-11.col-xs-12.blog-content
+  h2.text-center = @message.title
+  br
+  div
+    h4.text-center = raw @message.text
+
+= link_to 'Back', messages_path
+

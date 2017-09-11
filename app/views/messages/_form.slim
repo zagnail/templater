@@ -1,0 +1,23 @@
+= simple_form_for(message) do |f|
+  - if message.errors.any?
+    #error_explanation
+      h2 = pluralize(message.errors.count, "error")
+           | prohibited this post from being saved:
+
+      ul
+        - message.error.full_errors.each do |error|
+          li = error
+
+
+  .form-group
+    = f.input :title, class: "form-control"
+
+  ul
+    - message.account_columns.each do |column|
+      li = column
+
+  .form-group
+    = f.input :text, class: "form-control"
+
+  .actions
+    = f.submit class: "form-control btn-success"

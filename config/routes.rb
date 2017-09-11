@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to:  "messages#index"
+
+  resources :accounts
+  resources :messages
+  get "/choose", to: "pages#choose"
+  post "/sent-message", to: "pages#sent"
 end

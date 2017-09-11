@@ -1,0 +1,25 @@
+.container
+  .col-sm-10.col-sm-offset-1.col-xs-12.blog-content
+    .col-xs-12
+      p#notice = notice
+      h1 Messages
+
+      .text-center
+        = link_to 'New', new_message_path
+        br
+        = link_to 'All Accounts', accounts_path
+        br
+        = link_to 'Sent Message', "/choose"
+ 
+    - @messages.each do |message|
+      .col-xs-12
+        .text-center
+          h2 = link_to message.title, message_path(message)
+        h5 = raw(message.text).truncate(358)
+        = link_to 'READ MORE', message_path(message)
+      .col-xs-12
+        .text-center
+          = link_to 'Edit', edit_message_path(message)
+        .text-center
+          = link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' }
+      br

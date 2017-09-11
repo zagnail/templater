@@ -1,0 +1,16 @@
+.container
+  .col-sm-10.col-sm-offset-1.col-xs-12.blog-content
+    .col-xs-12
+      p#notice = notice
+      h1 Accounts
+
+      .text-center
+        = link_to 'New', new_account_path
+        br
+        = link_to 'App Messages', messages_path
+
+    - @accounts.each do |account|
+      .col-xs-12
+        .text-center
+          h2 = link_to account.name, account_path(account)
+          h4 = "#{account.balance} #{account.currency}"

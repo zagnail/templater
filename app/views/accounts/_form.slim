@@ -1,0 +1,21 @@
+= simple_form_for(account) do |f|
+  - if account.errors.any?
+    #error_explanation
+      h2 = pluralize(account.errors.count, "error")
+           | prohibited this account from being saved:
+
+      ul
+        - account.error.full_errors.each do |error|
+          li = error
+
+  .form-group
+    = f.input :balance, class: "form-control"
+
+  .form-group
+    = f.input :currency, class: "form-control"
+
+  .form-group
+    = f.input :name, class: "form-control"
+
+  .actions
+    = f.submit class: "form-control btn-success"

@@ -1,0 +1,10 @@
+.col-sm-11.col-xs-12.blog-content
+  h2.text-center = @account.name
+  div.text-center
+    h4 = "#{@account.balance} #{@account.currency}"
+
+.col-sm-11.col-xs.12
+  br
+  = link_to 'Edit', edit_account_path(@account)
+  br
+  = link_to 'Back', accounts_path

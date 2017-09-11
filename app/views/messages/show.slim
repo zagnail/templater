@@ -1,0 +1,11 @@
+.col-sm-11.col-xs-12.blog-content
+  h2.text-center = @message.title
+  br
+  div
+    h4.text-center = raw @message.text
+
+.col-sm-11.col-xs-12
+  br
+  = link_to 'Edit', edit_message_path(@message)
+  br
+  = link_to 'Back', messages_path

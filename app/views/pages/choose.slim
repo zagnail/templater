@@ -1,0 +1,11 @@
+= form_tag '/sent-message'
+  .form-group
+    = label_tag(:message, "Выберите сообщение:")
+    = select_tag(:message, options_for_select(@messages.map { |m| [m.title, m.id] }), class: "form-control")
+
+  .form-group
+    = label_tag(:account, "Выберите клиента:")
+    = select_tag(:account, options_for_select(@accounts.map { |a| [a.name, a.id] }), class: "form-control")
+
+  .actions
+    = submit_tag "Отправить", class: "form-control btn-success"
