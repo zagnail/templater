@@ -12,12 +12,20 @@
   .form-group
     = f.input :title, class: "form-control"
 
-  ul
+  .btn-group
     - message.account_columns.each do |column|
-      li = column
+      button type="button" class="btn btn-primary" = column
 
   .form-group
     = f.input :text, class: "form-control"
 
   .actions
     = f.submit class: "form-control btn-success"
+
+javascript:
+  $("button").click(function() {
+    var text, textarea_text;
+    textarea_text = $("textarea").val();
+    text = $(this).text();
+    $("textarea").val(textarea_text + " {{" + text + "}}");
+  });
